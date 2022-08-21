@@ -8,10 +8,12 @@ specifiers:
   express: ^4.18.1
   nodemon: ^2.0.19
   typescript: ^4.7.4
+  uuid: ^8.3.2
 
 dependencies:
   express: 4.18.1
   typescript: 4.7.4
+  uuid: 8.3.2
 
 devDependencies:
   '@typescript-eslint/eslint-plugin': 5.33.1_vsoshirnpb7xw6mr7xomgfas2i
@@ -1813,6 +1815,11 @@ packages:
   /utils-merge/1.0.1:
     resolution: {integrity: sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=}
     engines: {node: '>= 0.4.0'}
+    dev: false
+
+  /uuid/8.3.2:
+    resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
+    hasBin: true
     dev: false
 
   /v8-compile-cache/2.3.0:

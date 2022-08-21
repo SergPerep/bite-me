@@ -13,7 +13,8 @@
   "type": "module",
   "dependencies": {
     "express": "^4.18.1",
-    "typescript": "^4.7.4"
+    "typescript": "^4.7.4",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.33.1",
