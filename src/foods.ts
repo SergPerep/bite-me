@@ -2,8 +2,12 @@
 
 type Food = {
   id: string,
-  name: string,
-  brand: string,
+  name: {
+    nl?: string,
+    en?: string
+  },
+  brands: string[],
+  productType: string[],
   nutrition: {
     per: string,
     kCal: number,
@@ -11,17 +15,50 @@ type Food = {
     fats: number,
     carbohydrates: number,
   },
-  packageSize: string,
-  portionSize?: string,
+  packageSize: {
+    value: number,
+    unit: "ml" | "g"
+  },
+  portionSize?: {
+    value: number,
+    unit: "ml" | "g"
+  }
 }
 
 type Foods = Food[];
 
+const food: Food = {
+  id: "17b6b4a0-5aba-4ad6-8cf8-6820e3687fa0",
+  name: {
+    nl:"Volle melk"
+  },
+  brands: ["AH"],
+  productType: ["Milk"],
+  nutrition: {
+    per: "100ml",
+    kCal: 100,
+    proteins: 6.4,
+    fats: 2,
+    carbohydrates: 61,
+  },
+  packageSize: {
+    value: 224,
+    unit: "ml"
+  },
+  portionSize: {
+    value: 24,
+    unit: "ml"
+  },
+}
+
 export let foods:Foods = [
   {
     id: "17b6b4a0-5aba-4ad6-8cf8-6820e3687fa0",
-    name: "Volle melk",
-    brand: "AH",
+    name: {
+      nl:"Volle melk"
+    },
+    brands: ["AH"],
+    productType: ["Milk"],
     nutrition: {
       per: "100ml",
       kCal: 100,
@@ -29,13 +66,22 @@ export let foods:Foods = [
       fats: 2,
       carbohydrates: 61,
     },
-    packageSize: "224ml",
-    portionSize: "24ml",
+    packageSize: {
+      value: 224,
+      unit: "ml"
+    },
+    portionSize: {
+      value: 24,
+      unit: "ml"
+    },
   },
   {
     id: "68a3072e-f9b3-43ce-8b49-2d5105865d5f",
-    name: "Milka Reep alpenmelk",
-    brand: "AH",
+    name: {
+      nl: "Milka Reep alpenmelk"
+    },
+    brands: [ "Milka", "Oreo" ],
+    productType: [ "Chocolate" ],
     nutrition: {
       per: "100g",
       kCal: 532,
@@ -43,7 +89,10 @@ export let foods:Foods = [
       fats: 29,
       carbohydrates: 59,
     },
-    packageSize: "100g",
+    packageSize: {
+      value: 100,
+      unit: "g"
+    },
   },
 ];
 
