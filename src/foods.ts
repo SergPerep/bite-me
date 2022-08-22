@@ -27,30 +27,6 @@ type Food = {
 
 type Foods = Food[];
 
-const food: Food = {
-  id: "17b6b4a0-5aba-4ad6-8cf8-6820e3687fa0",
-  name: {
-    nl:"Volle melk"
-  },
-  brands: ["AH"],
-  productType: ["Milk"],
-  nutrition: {
-    per: "100ml",
-    kCal: 100,
-    proteins: 6.4,
-    fats: 2,
-    carbohydrates: 61,
-  },
-  packageSize: {
-    value: 224,
-    unit: "ml"
-  },
-  portionSize: {
-    value: 24,
-    unit: "ml"
-  },
-}
-
 export let foods:Foods = [
   {
     id: "17b6b4a0-5aba-4ad6-8cf8-6820e3687fa0",
