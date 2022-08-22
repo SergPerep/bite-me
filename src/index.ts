@@ -20,10 +20,10 @@ app.get("/foods/:id", (req, res) => {
 });
 
 // Get add new food
-app.post("/foods", () => {});
+// app.post("/foods", () => {});
 
 // Update a food
-app.put("/foods/:id", () => {});
+// app.put("/foods/:id", () => {});
 
 // Delete food item
 app.delete("/foods/:id", (req, res) => {

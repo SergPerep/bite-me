@@ -1,5 +1,23 @@
 // import { v4 as uuid } from "uuid";
-export let foods = [
+
+type Food = {
+  id: string,
+  name: string,
+  brand: string,
+  nutrition: {
+    per: string,
+    kCal: number,
+    proteins: number,
+    fats: number,
+    carbohydrates: number,
+  },
+  packageSize: string,
+  portionSize?: string,
+}
+
+type Foods = Food[];
+
+export let foods:Foods = [
   {
     id: "17b6b4a0-5aba-4ad6-8cf8-6820e3687fa0",
     name: "Volle melk",
@@ -29,4 +47,4 @@ export let foods = [
   },
 ];
 
-export const setFoods = (arr) => foods = arr;
+export const setFoods = (arr:Foods) => foods = arr;
