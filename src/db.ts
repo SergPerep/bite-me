@@ -1,5 +1,6 @@
 import { MongoClient } from "mongodb";
 import dotenv from "dotenv";
+import fillUpCategories from "./queries/fillUpCategories";
 dotenv.config();
 
 // Connection URI
@@ -18,6 +19,8 @@ async function run() {
     console.log("-> Connected to MongoDb");
     const db = client.db(dbName);
     const foods = db.collection("foods");
+    const categories = db.collection("categories");
+    await fillUpCategories(categories);
   } catch(error) {
     console.error(error);
   } finally {
