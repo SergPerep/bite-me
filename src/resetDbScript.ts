@@ -1,5 +1,6 @@
 import { MongoClient } from "mongodb";
 import dotenv from "dotenv";
+import resetDb from "./queries/resetDb";
 dotenv.config();
 
 // Connection URI
@@ -19,6 +20,8 @@ async function run() {
     const db = client.db(dbName);
     const foods = db.collection("foods");
     const categories = db.collection("categories");
+    const brands = db.collection("brands");
+    await resetDb(foods, categories, brands);
   } catch(error) {
     console.error(error);
   } finally {
