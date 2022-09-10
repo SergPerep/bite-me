@@ -1,4 +1,5 @@
 import { MongoClient } from "mongodb";
+import { Express } from "express";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -9,7 +10,7 @@ const uri =
 const dbName = "biteme";
   // Create a new MongoClient
 const client = new MongoClient(uri);
-async function run() {
+const connectToDb = async (app: Express) => {
   try {
     // Connect the client to the server (optional starting in v4.7)
     await client.connect();
@@ -17,14 +18,16 @@ async function run() {
     await client.db(dbName).command({ ping: 1 });
     console.log("-> Connected to MongoDb");
     const db = client.db(dbName);
-    const foods = db.collection("foods");
-    const categories = db.collection("categories");
+    const foodsColl = db.collection("foods");
+    const catColl = db.collection("categories");
+    const brandsColl = db.collection("brands");
+    app.locals.foodsColl = foodsColl;
+    app.locals.catColl = catColl;
+    app.locals.brandsColl = brandsColl;
   } catch(error) {
     console.error(error);
-  } finally {
-    // Ensures that the client will close when you finish/error
     await client.close();
-  }
+  } 
 }
 
-run().catch(console.dir);
+export default connectToDb;
