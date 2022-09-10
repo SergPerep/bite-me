@@ -1,7 +1,7 @@
 const foods: Foods = [
     {
         name: { nl: 'Lassie Toverrijst builtje' },
-        brands: [ 'Lassie' ],
+        brand: 'Lassie',
         categories: ["Grains, legumes, nuts & seeds"],
         unit: 'g',
         packageSize: 300,
@@ -14,7 +14,7 @@ const foods: Foods = [
         }
     },{
         name: { nl: 'AH Kipfilet' },
-        brands: [ 'AH' ],
+        brand:  'AH' ,
         categories: ['Meat & poultry'],
         unit: 'g',
         packageSize: 600,
@@ -27,7 +27,7 @@ const foods: Foods = [
         }
     },{
         name: { nl: 'AH Oregano' },
-        brands: [ 'AH' ],
+        brand:  'AH' ,
         categories: [ "Herbs & spices" ],
         unit: 'g',
         packageSize: 15,
@@ -40,7 +40,7 @@ const foods: Foods = [
         }
     }, {
         name: { nl: "Olav's Gerookte zalmfilet" },
-        brands: [ "Olav's" ],
+        brand:  "Olav's" ,
         categories: [ "Fish & seafood" ],
         unit: 'g',
         packageSize: 200,
@@ -77,7 +77,7 @@ const foods: Foods = [
         }
     },{
         name: { nl: 'Philadelphia Original' },
-        brands: [ 'Philadelphia' ],
+        brand:  'Philadelphia' ,
         categories: [ "Dairy" ],
         unit: 'g',
         packageSize: 200,
@@ -91,7 +91,7 @@ const foods: Foods = [
     },
     {
         name: { nl: 'AH Verse scharreleieren M' },
-        brands: [ 'AH' ],
+        brand:  'AH' ,
         categories: [ "Eggs"],
         nutrition: {
           per: '100 g',
@@ -105,7 +105,7 @@ const foods: Foods = [
         name: {
           nl:"AH Volle melk"
         },
-        brands: [ "AH" ],
+        brand:  "AH" ,
         categories: [ "Dairy" ],
         packageSize: 224,
         unit: "ml",
@@ -119,7 +119,7 @@ const foods: Foods = [
     },
     {
         name: { nl: 'Milka Tablet melk oreo' },
-        brands: [ 'Milka' ],
+        brand:  'Milka' ,
         categories: [ "Chocolade"],
         unit: 'g',
         packageSize: 100,
@@ -139,7 +139,7 @@ export type Food = {
         en?: string
     },
     state?: string,
-    brands?: string[],
+    brand?: string,
     categories: string[],
     unit?: 'g' | 'ml',
     packageSize?: number,

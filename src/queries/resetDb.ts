@@ -33,9 +33,8 @@ const insertCategories = async(foods: Foods, catColl: Collection) => {
 const insertBrands = async (foods: Foods, brandsColl: Collection) => {
     // Extract list of brands from foods
     const brandsArr = foods.reduce((prevVal: string[], curVal) => {
-        if (!curVal.brands) return prevVal;
-        const brands = curVal.brands?.reduce((prevVal: string[], curVal) => [...prevVal, curVal], []);
-        return [...prevVal, ...brands]
+        if (!curVal.brand) return prevVal;
+        return [...prevVal, curVal.brand]
     }, []);
 
     const brandsSet = new Set(brandsArr);
@@ -55,14 +54,10 @@ const insertFoods = async(foods: Foods, foodsColl: Collection, catColl: Collecti
                         return result?._id.toString();
                     }
                 ));
-                if (food.brands) {
-                    const brandsIds = await Promise.all(
-                        food.brands.map( async (brandStr) => {
-                            const result = await brandsColl.findOne({ name: brandStr });
-                            return result?._id.toString();
-                        })
-                    )
-                    return  {...food, categories: categoriesIds, brands: brandsIds}
+                if (food.brand) {
+                    const result = await brandsColl.findOne({ name: food.brand });
+                    const brandId = result?._id.toString();
+                    return  {...food, categories: categoriesIds, brand: brandId}
                 }
                 return {...food, categories: categoriesIds}
             }
