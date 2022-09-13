@@ -10,8 +10,8 @@ router.get("/", async(req, res) => {
 
 router.get("/:id", async(req, res) => {
     const foodsColl = req.app.locals.foodsColl;
-    const id = req.params.id;
-    const food = await foodsColl.findOne({ _id: new ObjectId(id) });
+    const idStr = req.params.id;
+    const food = await foodsColl.findOne({ _id: new ObjectId(idStr) });
     res.json(food);
 })
 
@@ -25,10 +25,10 @@ router.post("/", async(req, res) => {
 
 router.put("/:id", async(req, res) => {
     const foodsColl = req.app.locals.foodsColl;
-    const id = req.params.id;
+    const idStr = req.params.id;
     const body = req.body;
     await foodsColl.updateOne(
-        { _id: new ObjectId(id) }, 
+        { _id: new ObjectId(idStr) }, 
         { $set: { ...body } }
     );
     res.json(`Updated a doc`);
@@ -36,8 +36,8 @@ router.put("/:id", async(req, res) => {
 
 router.delete("/:id", async(req, res) => {
     const foodsColl = req.app.locals.foodsColl;
-    const id = req.params.id;
-    await foodsColl.deleteOne({ _id: new ObjectId(id) } );
+    const idStr = req.params.id;
+    await foodsColl.deleteOne({ _id: new ObjectId(idStr) } );
     res.json(`Deleted a doc`);
 })
 
