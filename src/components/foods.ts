@@ -1,7 +1,6 @@
 import { Router } from "express";
 const router = Router();
 import { ObjectId } from "mongodb";
-import { AppError } from "./errors/appErrors";
 
 router.get("/", async(req, res, next) => {
     try {
@@ -28,7 +27,6 @@ router.post("/", async(req, res, next) => {
     try {
         const foodsColl = req.app.locals.foodsColl;
         const body = req.body;
-        
         const result = await foodsColl.insertOne(body);
         res.json(`Inserted doc ${result.insertedId}`);
     } catch (error) {
