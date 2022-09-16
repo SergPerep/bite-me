@@ -1,3 +1,4 @@
+import { Foods } from "../types";
 const foods: Foods = [
     {
         name: { nl: 'Lassie Toverrijst builtje' },
@@ -132,26 +133,5 @@ const foods: Foods = [
         }
     }
 ];
-
-export type Food = {
-    name: {
-        nl?: string,
-        en?: string
-    },
-    state?: string,
-    brand?: string,
-    categories: string[],
-    unit?: 'g' | 'ml',
-    packageSize?: number,
-    nutrition: {
-        per: '100 g' | '100 ml',
-        kcal: number,
-        fats: number,
-        carbohydrates: number,
-        proteins: number
-    }
-}
-
-export type Foods = Food[];
 
 export default foods;

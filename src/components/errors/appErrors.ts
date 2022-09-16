@@ -1,12 +1,26 @@
 // Use these to specify behavior of custom error handler middleware
 export class AppError extends Error {
     statusCode: number;
-    constructor(message = "Internal server error", statusCode = 500) {
+    constructor(message = "Internal server error", statusCode = 500, name = "AppError") {
       super(message); 
-      this.name = "AppError";
+      this.name = name;
       this.statusCode = statusCode;
     }
 }
+
+export class EmptyFieldError extends AppError {
+  constructor(propName: string) {
+    const message = `Empty field: ${propName}`;
+    super(message, 400, "EmptyFieldError");
+  }
+}
+
+  export class WrongTypeError extends AppError {
+    constructor(propName: string, prop: unknown, expType: string) {
+      const message = `Expected ${propName} to be a ${expType} instead of a ${typeof prop}`;
+      super(message, 400, "WrongTypeError");
+    }
+  }
 
 //   export class MovieNotFoundError extends Error {
 //     constructor(movieId) {
@@ -26,12 +40,5 @@ export class AppError extends Error {
 //     }
 //   }
   
-//   export class WrongTypeError extends Error {
-//     constructor(propName, prop, expType) {
-//       super();
-//       this.name = "WrongTypeError";
-//       this.message = `Expected ${propName} to be a ${expType} instead of a ${typeof prop}`;
-//       this.statusCode = 400;
-//     }
-//   }
+
   

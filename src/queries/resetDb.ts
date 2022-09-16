@@ -1,5 +1,6 @@
 import { Collection } from "mongodb";
-import foods, { Foods } from "../mock-data/startData";
+import foods from "../mock-data/startData";
+import { Foods } from "../types";
 
 const deleteAllCategories = async (catColl: Collection) => {
     const result = await catColl.deleteMany({});
