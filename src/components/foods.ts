@@ -2,12 +2,13 @@ import { Router } from "express";
 const router = Router();
 import { ObjectId } from "mongodb";
 import validateFoodBody from "./validateFoodBody";
+import sc from "../utils/statusCodes";
 
 router.get("/", async(req, res, next) => {
     try {
         const foodsColl = req.app.locals.foodsColl;
         const foods = await foodsColl.find({}).toArray();
-        res.json(foods);
+        res.status(sc.ok).json(foods);
     } catch (error) {
         next(error)
     }
@@ -18,7 +19,7 @@ router.get("/:id", async(req, res, next) => {
         const foodsColl = req.app.locals.foodsColl;
         const idStr = req.params.id;
         const food = await foodsColl.findOne({ _id: new ObjectId(idStr) });
-        res.json(food);
+        res.status(sc.ok).json(food);
     } catch (error) {
         next(error)
     } 
@@ -30,7 +31,7 @@ router.post("/", async(req, res, next) => {
         const body = req.body;
         validateFoodBody(body);
         const result = await foodsColl.insertOne(body);
-        res.json(`Inserted doc ${result.insertedId}`);
+        res.status(sc.created).json(`Inserted doc ${result.insertedId}`);
     } catch (error) {
         next(error)
     }
@@ -46,7 +47,7 @@ router.put("/:id", async(req, res, next) => {
             { _id: new ObjectId(idStr) }, 
             { $set: { ...body } }
         );
-        res.json(`Updated a doc`);
+        res.status(sc.ok).json(`Updated a doc`);
     } catch (error) {
         next(error)
     }
@@ -57,7 +58,7 @@ router.delete("/:id", async(req, res, next) => {
         const foodsColl = req.app.locals.foodsColl;
         const idStr = req.params.id;
         await foodsColl.deleteOne({ _id: new ObjectId(idStr) } );
-        res.json(`Deleted a doc`);
+        res.status(sc.ok).json(`Deleted a doc`);
     } catch (error) {
         next(error)
     }
