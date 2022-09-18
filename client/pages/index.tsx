@@ -1,7 +1,63 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import FoodList from '../components/FoodList';
+import styles from '../styles/Home.module.css';
+import { Foods } from '../types';
+
+const foods: Foods = [{
+  name: { nl: 'Lassie Toverrijst builtje' },
+  brand: 'Lassie',
+  categories: ["Grains, legumes, nuts & seeds"],
+  unit: 'g',
+  packageSize: 300,
+  nutrition: {
+      per: '100 g',
+      kcal: 353,
+      fats: 1,
+      carbohydrates: 79.6,
+      proteins: 5.8
+  }
+},{
+  name: { nl: 'AH Kipfilet' },
+  brand:  'AH' ,
+  categories: ['Meat & poultry'],
+  unit: 'g',
+  packageSize: 600,
+  nutrition: {
+      per: '100 g',
+      kcal: 113,
+      fats: 1.9,
+      carbohydrates: 0,
+      proteins: 24
+  }
+}, {
+  name: { nl: 'AH Oregano' },
+  brand:  'AH' ,
+  categories: [ "Herbs & spices" ],
+  unit: 'g',
+  packageSize: 15,
+  nutrition: {
+    per: '100 g',
+    kcal: 334,
+    fats: 0,
+    carbohydrates: 67,
+    proteins: 0
+  }
+}, {
+  name: { nl: "Olav's Gerookte zalmfilet" },
+  brand:  "Olav's" ,
+  categories: [ "Fish & seafood" ],
+  unit: 'g',
+  packageSize: 200,
+  nutrition: {
+      per: '100 g',
+      kcal: 183,
+      fats: 11,
+      carbohydrates: 0,
+      proteins: 21
+  }
+}];
 
 const Home: NextPage = () => {
   return (
@@ -13,7 +69,8 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
+        <FoodList foods={foods} />
+        {/* <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
@@ -50,7 +107,7 @@ const Home: NextPage = () => {
               Instantly deploy your Next.js site to a public URL with Vercel.
             </p>
           </a>
-        </div>
+        </div> */}
       </main>
 
       <footer className={styles.footer}>

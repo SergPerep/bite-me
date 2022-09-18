@@ -4,6 +4,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    background-color: #F6F6F6;
 }
 
 a {
@@ -24,3 +25,87 @@ a {
     background: black;
   }
 }
+
+/* ===== FOODS ===== */
+
+:root {
+  --c-black-a80: rgba(0, 0, 0, .80);
+  --c-black-a60: rgba(0, 0, 0, .60);
+  --c-black-a30: rgba(0, 0, 0, .30);
+  --c-black-a12: rgba(0, 0, 0, .12);
+  --c-black-a08: rgba(0, 0, 0, .08);
+  --c-black-a04: rgba(0, 0, 0, .04);
+}
+.foods{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.food{
+  padding: 16px;
+  background-color: white;
+  /* border: 1px solid var(--c-black-a12); */
+  border-radius: 12px;
+  width: calc((100% - 12px) / 3);
+  margin-right: 12px;
+  margin-bottom: 12px;
+}
+.food__header{
+
+}
+
+.food__title{
+  font-weight: bold;
+}
+
+.food__nutrients {
+ margin: 12px 0;
+}
+
+.food__nutrient {
+  font-size: 14px;
+  line-height: 22px;
+  margin-right: 16px;
+}
+
+.food__nutrient .title {
+  color: var(--c-black-a60);
+  margin-right: 4px;
+}
+
+.nutrient-bar{
+  display: flex;
+  border-radius: 2px;
+  height: 4px;
+  overflow: hidden;
+  margin: 8px 0;
+}
+
+.nutrient-bar .fats,
+.nutrient-bar .carbohydrates,
+.nutrient-bar .proteins{
+  height: 100%;
+}
+
+.nutrient-bar .fats{
+  background-color: #E1A917;
+}
+.nutrient-bar .carbohydrates{
+  background-color: #E14817;
+}
+.nutrient-bar .proteins{
+  background-color: #559FE3;
+}
+
+.category {
+  display: inline-block;
+  font-size: 14px;
+  line-height: 22px;
+  margin-right: 16px;
+  padding: 4px 12px;
+  border-radius: 16px;
+  color: var(--c-black-a60);
+  background-color: var(--c-black-a04);
+}
+  
