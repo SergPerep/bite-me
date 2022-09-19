@@ -64,9 +64,18 @@ a {
 }
 
 .food__nutrient {
+  margin-right: 12px;
+}
+
+.food__nutrients__values{
   font-size: 14px;
   line-height: 22px;
-  margin-right: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.food__nutrients__values .per{
+  color: var(--c-black-a60);
 }
 
 .food__nutrient .title {
