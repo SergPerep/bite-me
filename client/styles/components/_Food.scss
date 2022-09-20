@@ -1,0 +1,79 @@
+@use "../sass-utils/colors";
+/* ===== FOODS ===== */
+
+.foods {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.food {
+    padding: 16px;
+    background-color: white;
+    border-radius: 12px;
+    width: calc((100% - 12px) / 3);
+    margin-right: 12px;
+    margin-bottom: 12px;
+}
+
+.food__title {
+    font-weight: bold;
+}
+
+.food__nutrients {
+    margin: 12px 0;
+}
+
+.food__nutrient {
+    margin-right: 12px;
+}
+
+.food__nutrients__values {
+    font-size: 14px;
+    line-height: 22px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.food__nutrients__values .per {
+    color: colors.$black-a60;
+}
+
+.food__nutrient .title {
+    color: colors.$black-a60;
+}
+
+.nutrient-bar {
+    display: flex;
+    border-radius: 2px;
+    height: 4px;
+    overflow: hidden;
+    margin: 8px 0;
+}
+
+.nutrient-bar .fats,
+.nutrient-bar .carbohydrates,
+.nutrient-bar .proteins {
+    height: 100%;
+}
+
+.nutrient-bar .fats {
+    background-color: #e1a917;
+}
+.nutrient-bar .carbohydrates {
+    background-color: #e14817;
+}
+.nutrient-bar .proteins {
+    background-color: #559fe3;
+}
+
+.category {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 22px;
+    margin-right: 16px;
+    padding: 4px 12px;
+    border-radius: 16px;
+    color: colors.$black-a60;
+    background-color: colors.$black-a04;
+}
