@@ -1,65 +1,64 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
-import FoodList from '../components/Food/FoodList';
-import styles from '../styles/Home.module.css';
+import styles from '../styles/Home.module.css'
 import { Foods } from '../types';
-
-const foods: Foods = [{
-  name: { nl: 'Lassie Toverrijst builtje' },
-  brand: 'Lassie',
-  categories: ["Grains, legumes, nuts & seeds"],
-  unit: 'g',
-  packageSize: 300,
-  nutrition: {
-      per: '100 g',
-      kcal: 353,
-      fats: 1,
-      carbohydrates: 79.6,
-      proteins: 5.8
-  }
-},{
-  name: { nl: 'AH Kipfilet' },
-  brand:  'AH' ,
-  categories: ['Meat & poultry'],
-  unit: 'g',
-  packageSize: 600,
-  nutrition: {
-      per: '100 g',
-      kcal: 113,
-      fats: 1.9,
-      carbohydrates: 0,
-      proteins: 24
-  }
-}, {
-  name: { nl: 'AH Oregano' },
-  brand:  'AH' ,
-  categories: [ "Herbs & spices" ],
-  unit: 'g',
-  packageSize: 15,
-  nutrition: {
-    per: '100 g',
-    kcal: 334,
-    fats: 0,
-    carbohydrates: 67,
-    proteins: 0
-  }
-}, {
-  name: { nl: "Olav's Gerookte zalmfilet" },
-  brand:  "Olav's" ,
-  categories: [ "Fish & seafood" ],
-  unit: 'g',
-  packageSize: 200,
-  nutrition: {
-      per: '100 g',
-      kcal: 183,
-      fats: 11,
-      carbohydrates: 0,
-      proteins: 21
-  }
-}];
+import FoodList from '../components/Food/FoodList';
 
 const Home: NextPage = () => {
+  const foods: Foods = [{
+    name: { nl: 'Lassie Toverrijst builtje' },
+    brand: 'Lassie',
+    categories: ["Grains, legumes, nuts & seeds"],
+    unit: 'g',
+    packageSize: 300,
+    nutrition: {
+        per: '100 g',
+        kcal: 353,
+        fats: 1,
+        carbohydrates: 79.6,
+        proteins: 5.8
+    }
+  },{
+    name: { nl: 'AH Kipfilet' },
+    brand:  'AH' ,
+    categories: ['Meat & poultry'],
+    unit: 'g',
+    packageSize: 600,
+    nutrition: {
+        per: '100 g',
+        kcal: 113,
+        fats: 1.9,
+        carbohydrates: 0,
+        proteins: 24
+    }
+  }, {
+    name: { nl: 'AH Oregano' },
+    brand:  'AH' ,
+    categories: [ "Herbs & spices" ],
+    unit: 'g',
+    packageSize: 15,
+    nutrition: {
+      per: '100 g',
+      kcal: 334,
+      fats: 0,
+      carbohydrates: 67,
+      proteins: 0
+    }
+  }, {
+    name: { nl: "Olav's Gerookte zalmfilet" },
+    brand:  "Olav's" ,
+    categories: [ "Fish & seafood" ],
+    unit: 'g',
+    packageSize: 200,
+    nutrition: {
+        per: '100 g',
+        kcal: 183,
+        fats: 11,
+        carbohydrates: 0,
+        proteins: 21
+    }
+  }];
   return (
     <div className={styles.container}>
       <Head>
@@ -69,45 +68,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <FoodList foods={foods} />
-        {/* <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.tsx</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div> */}
+      <FoodList foods={foods} />
       </main>
 
       <footer className={styles.footer}>
