@@ -1,0 +1,55 @@
+@use "../sass-utils/fonts";
+@use "../sass-utils/colors";
+.field {
+    background-color: colors.$black-a08;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    display: flex;
+    align-items: baseline;
+    &.focused {
+        outline: 2px solid colors.$success;
+    }
+    &.error {
+        border: 1px solid colors.$error;
+    }
+    &.error.focused {
+        outline: 2px solid colors.$error;
+    }
+}
+
+label {
+    padding-bottom: 8px;
+    display: block;
+    @include fonts.small;
+    color: colors.$black-a60;
+}
+input {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    padding: 12px;
+    @include fonts.body;
+    &:focus {
+        outline: none;
+    }
+}
+.prefix,
+.suffix {
+    @include fonts.body;
+    color: colors.$black-a60;
+}
+.prefix {
+    padding-left: 12px;
+}
+.suffix {
+    padding-right: 12px;
+}
+
+.hint {
+    @include fonts.small;
+    padding-top: 8px;
+    color: colors.$black-a60;
+    &.error {
+        color: colors.$error;
+    }
+}
