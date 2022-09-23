@@ -1,25 +1,25 @@
 import { ChangeEventHandler, useRef, useState } from "react";
 
 type InputProps = {
-    label: string,
-    prefix: string,
-    suffix: string,
-    placeholder: string,
-    hintStr: string,
-    type: "text" | "number"
+    label?: string,
+    prefix?: string,
+    suffix?: string,
+    placeholder?: string,
+    hintStr?: string,
+    type?: "text" | "number"
 }
 
 const Input = ({ 
         label = "Label", 
-        prefix = "prefix", 
-        suffix = "suffix", 
+        prefix = "", 
+        suffix = "", 
         placeholder = "Placeholder", 
-        hintStr = "Help text",
+        hintStr = "",
         type = "text"
     }: InputProps) => {
     const [isFocused, setIsFocused] = useState(false);
     const [isError, setIsError] = useState(false);
-    const [value, setValue] = useState("0");
+    const [value, setValue] = useState("");
     const handleInputChange:ChangeEventHandler<HTMLInputElement> = (e) => setValue(e.target.value);
     const inputEl = useRef<HTMLInputElement>(null);
     const handleClickField = () => inputEl.current?.focus()

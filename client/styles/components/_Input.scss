@@ -1,5 +1,8 @@
 @use "../sass-utils/fonts";
 @use "../sass-utils/colors";
+.text-field {
+    margin: 24px 0;
+}
 .field {
     background-color: colors.$black-a08;
     border: 1px solid transparent;
