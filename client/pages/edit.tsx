@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Input from '../components/BaseUI/Input';
+import Edit from '../components/Edit/Edit';
 
 const Home: NextPage = () => {
   
@@ -13,17 +13,7 @@ const Home: NextPage = () => {
       </Head>
       <h1>Edit page</h1>
       <main>
-        <Input label='Name' placeholder="Name" type='text'/>
-        <Input label='Brand' placeholder="Brand" type='text'/>
-        <Input label='Categories' placeholder="Categories" type='text'/>
-        <Input label='Unit' placeholder="Unit" type='text'/>
-        <Input label='Package size' placeholder="Package size" type='text'/>
-        <Input label='Per' placeholder="Per" type='text'/>
-        <Input label='Energy' placeholder="Energy" type='text' suffix='kCal'/>
-
-        <Input label='Fats' placeholder="Fats" type='text'/>
-        <Input label='Carbs' placeholder="Carbs" type='text'/>
-        <Input label='Proteins' placeholder="Proteins" type='text'/>
+        <Edit />
       </main>
 
     </div>

@@ -1,0 +1,17 @@
+@use "../sass-utils/colors";
+@use "../sass-utils/fonts";
+
+.button {
+    background-color: colors.$success;
+    cursor: pointer;
+    border: 1px solid transparent;
+    @include fonts.body;
+    border-radius: 4px;
+    padding: 4px 12px;
+    color: white;
+    &.secondary {
+        background-color: colors.$black-a08;
+        color: colors.$black-a60;
+        border-color: colors.$black-a12;
+    }
+}

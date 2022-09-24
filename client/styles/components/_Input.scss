@@ -1,7 +1,7 @@
 @use "../sass-utils/fonts";
 @use "../sass-utils/colors";
 .text-field {
-    margin: 24px 0;
+    margin: 16px 0;
 }
 .field {
     background-color: colors.$black-a08;
@@ -21,7 +21,7 @@
 }
 
 label {
-    padding-bottom: 8px;
+    padding-bottom: 6px;
     display: block;
     @include fonts.small;
     color: colors.$black-a60;
@@ -30,15 +30,15 @@ input {
     width: 100%;
     border: none;
     background-color: transparent;
-    padding: 12px;
-    @include fonts.body;
+    padding: 8px 12px;
+    @include fonts.small;
     &:focus {
         outline: none;
     }
 }
 .prefix,
 .suffix {
-    @include fonts.body;
+    @include fonts.small;
     color: colors.$black-a60;
 }
 .prefix {
@@ -50,7 +50,7 @@ input {
 
 .hint {
     @include fonts.small;
-    padding-top: 8px;
+    padding-top: 6px;
     color: colors.$black-a60;
     &.error {
         color: colors.$error;
