@@ -23,9 +23,9 @@ const Input = ({
     const handleInputChange:ChangeEventHandler<HTMLInputElement> = (e) => setValue(e.target.value);
     const inputEl = useRef<HTMLInputElement>(null);
     const handleClickField = () => inputEl.current?.focus()
-    return <div className="text-field">
+    return <div className="input-field">
         <label htmlFor="number-input">{label}</label>
-        <div className={`field ${isFocused && "focused"} ${isError && "error"}`} 
+        <div className={`field ${isFocused ? "focused" : ""} ${isError ? "error" : ""}`} 
             onClick={handleClickField}>
             {prefix && <span className="prefix">{prefix}</span>}
             <input
