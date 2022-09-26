@@ -1,6 +1,14 @@
 import Button from "../BaseUI/Button";
 import Input from "../BaseUI/Input";
+import Select from "../BaseUI/Select";
 const Edit = () => {
+    const options = [{
+        name: "Eggs",
+        value: "eggs",
+    }, {
+        name: "Vegetables",
+        value: "veg",
+    }]
     return <div className="edit">
         <div className="edit__header">
             <h2>Edit &apos;Lassie Toverrijst builtj&apos;</h2>
@@ -11,6 +19,7 @@ const Edit = () => {
             <Input label='Name' placeholder="Name" type='text'/>
             <Input label='Brand' placeholder="Brand" type='text'/>
             <Input label='Categories' placeholder="Categories" type='text'/>
+            <Select label="Categories" placeholder="Select category" options={options}/>
             <Input label='Package size' placeholder="Package size" type='text'/>
             <Input label='Unit' placeholder="Unit" type='text'/>
             
