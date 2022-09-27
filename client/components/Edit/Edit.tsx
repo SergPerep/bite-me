@@ -1,6 +1,15 @@
+import { useState } from "react";
 import Button from "../BaseUI/Button";
 import Input from "../BaseUI/Input";
+import Segments from "../BaseUI/Segments/Segments";
 import Select from "../BaseUI/Select";
+
+type Segment = {
+    id: string; // to connect label with input
+    title: string;
+    value: string;
+};
+
 const Edit = () => {
     const options = [{
         name: "Eggs",
@@ -8,7 +17,21 @@ const Edit = () => {
     }, {
         name: "Vegetables",
         value: "veg",
-    }]
+    }];
+    const units = [{
+        id: "g",
+        title: "g",
+        value: "g"
+    }, {
+        id: "ml",
+        title: "ml",
+        value: "nl"
+    }];
+    const [selectedUnitValue, setSelectedUnitValue] = useState("g");
+    const handleSegmentClick = (segmentValue: string) => {
+        if (segmentValue === selectedUnitValue) return;
+        setSelectedUnitValue(segmentValue);
+    }
     return <div className="edit">
         <div className="edit__header">
             <h2>Edit &apos;Lassie Toverrijst builtj&apos;</h2>
@@ -20,9 +43,13 @@ const Edit = () => {
             <Input label='Brand' placeholder="Brand" type='text'/>
             <Input label='Categories' placeholder="Categories" type='text'/>
             <Select label="Categories" placeholder="Select category" options={options}/>
+            <Segments 
+                segments={units} 
+                name="units" 
+                title="Units"
+                selectedSegmentValue={selectedUnitValue}
+                handleSegmentClick={handleSegmentClick}/>
             <Input label='Package size' placeholder="Package size" type='text'/>
-            <Input label='Unit' placeholder="Unit" type='text'/>
-            
             </div>
             <div className="nutrition-block">
                 <h3>Nutrition</h3>

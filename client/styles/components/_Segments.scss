@@ -1,0 +1,52 @@
+@use "../sass-utils/colors";
+@use "../sass-utils/fonts";
+
+$success-a20: rgba(colors.$success, 0.2);
+$success-a30: rgba(colors.$success, 0.3);
+
+.segments {
+    .title {
+        @include fonts.small;
+        color: colors.$black-a60;
+        margin-bottom: 8px;
+    }
+    margin: 16px 0;
+}
+
+.segment-list {
+    display: flex;
+    @include fonts.small;
+}
+
+.segment {
+    padding: 4px 20px;
+    border: 1px solid colors.$black-a30;
+    text-align: center;
+
+    &,
+    label {
+        cursor: pointer;
+    }
+
+    input {
+        display: none;
+    }
+
+    &:not(:first-child) {
+        border-left: none;
+    }
+    &:first-child {
+        border-radius: 48px 0 0 48px;
+        padding-left: 24px;
+    }
+    &:last-child {
+        border-radius: 0 48px 48px 0;
+        padding-right: 24px;
+    }
+    &:hover {
+        background-color: $success-a20;
+    }
+    &.selected {
+        background-color: $success-a30;
+    }
+}
