@@ -41,7 +41,6 @@ const Edit = () => {
                 <h3>Basic info</h3>
             <Input label='Name' placeholder="Name" type='text'/>
             <Input label='Brand' placeholder="Brand" type='text'/>
-            <Input label='Categories' placeholder="Categories" type='text'/>
             <Select label="Categories" placeholder="Select category" options={options}/>
             <Segments 
                 segments={units} 
