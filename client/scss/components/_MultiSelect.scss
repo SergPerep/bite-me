@@ -1,0 +1,73 @@
+@use "../sass-utils/colors";
+@use "../sass-utils/fonts";
+
+.multiselect-field {
+    select {
+        display: none;
+    }
+    label {
+        padding-bottom: 8px;
+        display: block;
+        @include fonts.small;
+        color: colors.$black-a60;
+    }
+
+    .field {
+        @include fonts.small;
+        border-radius: 8px;
+        border: 1px solid colors.$black-a30;
+        padding: 8px 8px 0 8px;
+        cursor: text;
+        position: relative;
+    }
+
+    .selected-options {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        .option,
+        .input-wrapper {
+            margin: 0 8px 8px 0;
+        }
+        .option {
+            display: block;
+            cursor: pointer;
+            border-radius: 4px;
+            border: 1px solid colors.$black-a30;
+            padding: 4px 12px;
+            &:hover {
+                background-color: colors.$black-a12;
+            }
+        }
+        .input-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    input {
+        display: inline;
+    }
+
+    ul.unselected-options {
+        border: 1px solid colors.$black-a30;
+        margin-top: 8px;
+        border-radius: 8px;
+        list-style: none;
+        display: block;
+        padding: 4px 0;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        li {
+            padding: 4px 12px;
+            cursor: pointer;
+            &:hover {
+                background-color: colors.$black-a12;
+            }
+        }
+    }
+}
