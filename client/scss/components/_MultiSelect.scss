@@ -5,6 +5,7 @@
     select {
         display: none;
     }
+
     label {
         padding-bottom: 8px;
         display: block;
@@ -15,10 +16,14 @@
     .field {
         @include fonts.small;
         border-radius: 8px;
-        border: 1px solid colors.$black-a30;
+        // border: 1px solid colors.$black-a30;
         padding: 8px 8px 0 8px;
         cursor: text;
         position: relative;
+        background-color: colors.$black-a08;
+        &.focused {
+            outline: 2px solid colors.$success;
+        }
     }
 
     .selected-options {
@@ -27,29 +32,50 @@
         margin: 0;
         display: flex;
         flex-wrap: wrap;
-        .option,
-        .input-wrapper {
-            margin: 0 8px 8px 0;
-        }
+
         .option {
             display: block;
             cursor: pointer;
             border-radius: 4px;
             border: 1px solid colors.$black-a30;
             padding: 4px 12px;
+            background-color: white;
             &:hover {
-                background-color: colors.$black-a12;
+                background-color: rgba(white, 0.7);
             }
+        }
+        .placeholder-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 4px 4px;
+            color: colors.$black-a60;
+            border: 1px solid transparent;
         }
         .input-wrapper {
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 4px 4px;
+        }
+        .option,
+        .input-wrapper,
+        .placeholder-wrapper {
+            margin: 0 8px 8px 0;
+            padding-top: 4px;
+            padding-bottom: 4px;
         }
     }
 
     input {
+        @include fonts.small;
         display: inline;
+        width: 100%;
+        border: none;
+        background-color: transparent;
+        &:focus {
+            outline: none;
+        }
     }
 
     ul.unselected-options {
@@ -62,6 +88,7 @@
         position: absolute;
         width: 100%;
         left: 0;
+        background-color: white;
         li {
             padding: 4px 12px;
             cursor: pointer;

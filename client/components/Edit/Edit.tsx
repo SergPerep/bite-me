@@ -3,6 +3,7 @@ import Button from "../BaseUI/Button";
 import Input from "../BaseUI/Input";
 import Segments from "../BaseUI/Segments/Segments";
 import Select from "../BaseUI/Select";
+import MultiSelect from "../BaseUI/MultiSelect/MultiSelect";
 
 type Segment = {
     id: string; // to connect label with input
@@ -27,6 +28,16 @@ const Edit = () => {
         title: "ml",
         value: "nl"
     }];
+    const categories = [
+        {
+            title: "Fruit",
+            value: "fruit"
+          },
+          {
+            title: "Vegetables",
+            value: "veg"
+          }
+    ]
     const [selectedUnitValue, setSelectedUnitValue] = useState("g");
     const handleSegmentClick = (segmentValue: string) => {
         if (segmentValue === selectedUnitValue) return;
@@ -41,7 +52,13 @@ const Edit = () => {
                 <h3>Basic info</h3>
             <Input label='Name' placeholder="Name" type='text'/>
             <Input label='Brand' placeholder="Brand" type='text'/>
-            <Select label="Categories" placeholder="Select category" options={options}/>
+            <MultiSelect
+                label="Categories"
+                name="categories"
+                id="categories"
+                options={categories}
+                placeholder="Select category"
+            />
             <Segments 
                 segments={units} 
                 name="units" 
