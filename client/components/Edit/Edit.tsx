@@ -20,13 +20,13 @@ const Edit = () => {
         value: "veg",
     }];
     const units = [{
-        id: "g",
-        title: "g",
-        value: "g"
+        id: "100-g",
+        title: "100 g",
+        value: "100 g"
     }, {
-        id: "ml",
-        title: "ml",
-        value: "nl"
+        id: "100-ml",
+        title: "100 ml",
+        value: "100 nl"
     }];
     const categories = [
         {
@@ -50,8 +50,8 @@ const Edit = () => {
         <div className="edit__body">
             <div className="basic-block">
                 <h3>Basic info</h3>
-            <Input label='Name' placeholder="Name" type='text'/>
-            <Input label='Brand' placeholder="Brand" type='text'/>
+            <Input label='Product name' placeholder="Name" type='text'/>
+            <Select label="Brand" placeholder="Brand" options={[{ value: "ah", name: "Albert Heijn"}, { value: "jumbo", name: "Jumbo"}]}/>
             <MultiSelect
                 label="Categories"
                 name="categories"
@@ -59,17 +59,18 @@ const Edit = () => {
                 options={categories}
                 placeholder="Select category"
             />
-            <Segments 
-                segments={units} 
-                name="units" 
-                title="Units"
-                selectedSegmentValue={selectedUnitValue}
-                handleSegmentClick={handleSegmentClick}/>
-            <Input label='Package size' placeholder="Package size" type='text'/>
+            <Input label='Package size' placeholder="Package size" type='text' suffix="g"/>
             </div>
             <div className="nutrition-block">
+            
+            
                 <h3>Nutrition</h3>
-                <Input label='Per' placeholder="Per" type='text'/>
+                <Segments 
+                segments={units} 
+                name="per" 
+                title="Per"
+                selectedSegmentValue={selectedUnitValue}
+                handleSegmentClick={handleSegmentClick}/>
                 <Input label='Energy' placeholder="Energy" type='text' suffix='kCal'/>
                 <div className="composition">
                     <Input label='Fats' placeholder="e.g. 0.5" type='number' suffix="g"/>
