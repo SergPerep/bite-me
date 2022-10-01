@@ -4,6 +4,7 @@ import Input from "../BaseUI/Input";
 import Segments from "../BaseUI/Segments/Segments";
 import Select from "../BaseUI/Select";
 import MultiSelect from "../BaseUI/MultiSelect/MultiSelect";
+import InputWithSelect from "../BaseUI/InputWithSelect/InputWithSelect";
 
 type Segment = {
     id: string; // to connect label with input
@@ -59,7 +60,7 @@ const Edit = () => {
                 options={categories}
                 placeholder="Select category"
             />
-            <Input label='Package size' placeholder="Package size" type='text' suffix="g"/>
+            <InputWithSelect  label="Package size" type="number" placeholder="e.g. 200" selectOptions={[ {value: "g", title: "g"}, {value: "ml" , title: "ml"}]}/>
             </div>
             <div className="nutrition-block">
             

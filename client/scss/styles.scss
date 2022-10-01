@@ -1,6 +1,8 @@
 @forward "./base/reset";
 @forward "./base/icons";
 @forward "./base/layout";
+
+/*===== COMPONENTS =====*/
 @forward "./components/Button";
 @forward "./components/Food";
 @forward "./components/Input";
@@ -8,3 +10,4 @@
 @forward "./components/Edit";
 @forward "./components/Segments";
 @forward "./components/MultiSelect";
+@forward "./components/InputWithSelect";

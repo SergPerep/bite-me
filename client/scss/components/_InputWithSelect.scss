@@ -1,0 +1,114 @@
+@use "../sass-utils/colors";
+@use "../sass-utils/fonts";
+$borderRadius: 8px;
+
+.input-with-select-field {
+    margin: 16px 0;
+    > .field {
+        display: flex;
+    }
+    label {
+        padding-bottom: 6px;
+        display: block;
+        @include fonts.small;
+        color: colors.$black-a60;
+    }
+
+    .input-field {
+        margin: 0;
+        flex-grow: 1;
+        .field {
+            background-color: colors.$black-a08;
+            border: 1px solid transparent;
+            border-radius: $borderRadius 0 0 $borderRadius;
+            display: flex;
+            align-items: baseline;
+            &.focused {
+                outline: 2px solid colors.$success;
+            }
+            &.error {
+                border: 1px solid colors.$error;
+            }
+            &.error.focused {
+                outline: 2px solid colors.$error;
+            }
+        }
+        input {
+            width: 100%;
+            border: none;
+            background-color: transparent;
+            padding: 8px 12px;
+            @include fonts.small;
+            &:focus {
+                outline: none;
+            }
+        }
+        .prefix,
+        .suffix {
+            @include fonts.small;
+            color: colors.$black-a60;
+        }
+        .prefix {
+            padding-left: 12px;
+        }
+        .suffix {
+            padding-right: 12px;
+        }
+        .hint {
+            @include fonts.small;
+            padding-top: 6px;
+            color: colors.$black-a60;
+            &.error {
+                color: colors.$error;
+            }
+        }
+    }
+
+    .select-field {
+        .field {
+            margin: 0;
+            background-color: colors.$black-a08;
+            border-radius: 0 $borderRadius $borderRadius 0;
+            display: flex;
+            align-items: baseline;
+            position: relative;
+        }
+        select {
+            width: 100%;
+            border: 1px solid transparent;
+            background-color: transparent;
+            border-left: 1px solid colors.$black-a12;
+            padding: 8px 36px 8px 12px;
+            appearance: none;
+
+            @include fonts.small;
+            &:focus {
+                outline: 2px solid colors.$success;
+                border-radius: 0 8px 8px 0;
+            }
+            &.placeholder-is-visible {
+                color: colors.$black-a60;
+            }
+        }
+        .appendix {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: flex;
+            height: 100%;
+            align-items: center;
+            pointer-events: none; // lets click pas through .appendix to select
+            .suffix {
+                @include fonts.body;
+                color: colors.$black-a60;
+            }
+            .arrow-icon {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                width: 40px;
+            }
+        }
+    }
+}
