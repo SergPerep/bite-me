@@ -5,10 +5,9 @@ dotenv.config();
 
 // Connection URI
 const { MONGODB_USER, MONGODB_PASSWORD } = process.env;
-const uri =
-  `mongodb+srv://${MONGODB_USER}:${MONGODB_PASSWORD}@cluster0.s0yec.mongodb.net/?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://${MONGODB_USER}:${MONGODB_PASSWORD}@cluster0.s0yec.mongodb.net/?retryWrites=true&w=majority`;
 const dbName = "biteme";
-  // Create a new MongoClient
+// Create a new MongoClient
 const client = new MongoClient(uri);
 const connectToDb = async (app: Express) => {
   try {
@@ -24,10 +23,10 @@ const connectToDb = async (app: Express) => {
     app.locals.foodsColl = foodsColl;
     app.locals.catColl = catColl;
     app.locals.brandsColl = brandsColl;
-  } catch(error) {
+  } catch (error) {
     console.error(error);
     await client.close();
-  } 
-}
+  }
+};
 
 export default connectToDb;
