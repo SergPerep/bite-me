@@ -4,10 +4,22 @@
 // }
 
 .edit__header {
-    padding: 24px;
+    padding: 16px 24px 12px;
     border-bottom: 1px solid colors.$black-a12;
     border-radius: 12px 12px 0 0;
     background-color: white;
+    display: flex;
+    h2 {
+        width: calc(100% - 24px);
+        margin: 4px;
+    }
+    .icon {
+        cursor: pointer;
+        color: colors.$black-a60;
+        &:hover {
+            color: colors.$black-a80;
+        }
+    }
 }
 
 .edit__body {

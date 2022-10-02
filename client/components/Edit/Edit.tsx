@@ -5,6 +5,7 @@ import Segments from "../BaseUI/Segments/Segments";
 import Select from "../BaseUI/Select";
 import MultiSelect from "../BaseUI/MultiSelect/MultiSelect";
 import InputWithSelect from "../BaseUI/InputWithSelect/InputWithSelect";
+import Icon from "../BaseUI/Icon";
 
 type Segment = {
   id: string; // to connect label with input
@@ -58,6 +59,7 @@ const Edit = () => {
     <div className="edit">
       <div className="edit__header">
         <h2>Add a product</h2>
+        <Icon name="close" type="line" />
       </div>
       <div className="edit__body">
         <div className="basic-block">
