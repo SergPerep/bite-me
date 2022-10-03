@@ -1,8 +1,13 @@
 @use "../sass-utils/colors";
-// .edit {
-//     background-color: white;
-// }
 
+.overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .edit {
+        width: 1000px;
+    }
+}
 .edit__header {
     padding: 16px 24px 12px;
     border-bottom: 1px solid colors.$black-a12;

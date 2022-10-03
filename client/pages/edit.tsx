@@ -1,9 +1,8 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Edit from '../components/Edit/Edit';
+import type { NextPage } from "next";
+import Head from "next/head";
+import Edit from "../components/Edit";
 
 const Home: NextPage = () => {
-  
   return (
     <div className="container">
       <Head>
@@ -15,9 +14,8 @@ const Home: NextPage = () => {
       <main>
         <Edit />
       </main>
-
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
