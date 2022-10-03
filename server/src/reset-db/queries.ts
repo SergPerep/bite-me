@@ -1,5 +1,5 @@
 import { Collection } from "mongodb";
-import foods from "../mock-data/startData";
+import foods from "./datasets";
 import { FoodFinal, FoodOriginal } from "../types";
 
 const deleteAllCategories = async (catColl: Collection) => {

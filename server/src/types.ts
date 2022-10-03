@@ -6,7 +6,6 @@ export type FoodOriginal = {
   unit?: "g" | "ml";
   packageSize?: number;
   nutrition: {
-    per: "100 g" | "100 ml";
     kcal: number;
     fats: number;
     carbohydrates: number;
@@ -22,7 +21,6 @@ export type FoodFinal = {
   unit?: "g" | "ml";
   packageSize?: number;
   nutrition: {
-    per: "100 g" | "100 ml";
     kcal: number;
     fats: number;
     carbohydrates: number;

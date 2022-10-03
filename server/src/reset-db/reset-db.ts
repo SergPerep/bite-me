@@ -1,14 +1,13 @@
 import { MongoClient } from "mongodb";
 import dotenv from "dotenv";
-import resetDb from "./queries/resetDb";
+import resetDb from "./queries";
 dotenv.config();
 
 // Connection URI
 const { MONGODB_USER, MONGODB_PASSWORD } = process.env;
-const uri =
-  `mongodb+srv://${MONGODB_USER}:${MONGODB_PASSWORD}@cluster0.s0yec.mongodb.net/?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://${MONGODB_USER}:${MONGODB_PASSWORD}@cluster0.s0yec.mongodb.net/?retryWrites=true&w=majority`;
 const dbName = "biteme";
-  // Create a new MongoClient
+// Create a new MongoClient
 const client = new MongoClient(uri);
 async function run() {
   try {
@@ -22,7 +21,7 @@ async function run() {
     const categories = db.collection("categories");
     const brands = db.collection("brands");
     await resetDb(foods, categories, brands);
-  } catch(error) {
+  } catch (error) {
     console.error(error);
   } finally {
     // Ensures that the client will close when you finish/error
