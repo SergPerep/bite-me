@@ -1,10 +1,4 @@
-export type NameObj = {
-  nl?: string;
-  en?: string;
-};
-
-export type Food = {
-  _id: string;
+export type FoodOriginal = {
   name: string;
   state?: string;
   brand?: string;
@@ -20,4 +14,18 @@ export type Food = {
   };
 };
 
-export type Foods = Food[];
+export type FoodFinal = {
+  name: string;
+  state?: string;
+  brand?: string;
+  categories?: string[];
+  unit?: "g" | "ml";
+  packageSize?: number;
+  nutrition: {
+    per: "100 g" | "100 ml";
+    kcal: number;
+    fats: number;
+    carbohydrates: number;
+    proteins: number;
+  };
+};
