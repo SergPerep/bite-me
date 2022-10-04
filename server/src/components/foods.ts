@@ -9,7 +9,7 @@ router.get("/", async (req, res, next) => {
     const foodsColl = req.app.locals.foodsColl;
     const pipeline = [
       {
-        $addFields: {
+        $set: {
           categoryIdObjects: {
             $map: {
               input: "$categoriesIds",
@@ -29,6 +29,21 @@ router.get("/", async (req, res, next) => {
       },
       {
         $unset: ["categoriesIds", "categoryIdObjects"],
+      },
+      {
+        $set: {
+          id: "$_id",
+          categories: {
+            $map: {
+              input: "$categories",
+              as: "category",
+              in: { id: "$$category._id", name: "$$category.name" },
+            },
+          },
+        },
+      },
+      {
+        $unset: "_id",
       },
     ];
     const aggCursor = foodsColl.aggregate(pipeline);
