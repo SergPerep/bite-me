@@ -6,8 +6,21 @@ const router = Router();
 router.get("/", async (req, res, next) => {
   try {
     const catColl = req.app.locals.catColl;
-    const result = await catColl.find({}).toArray();
-    res.status(sc.ok).json(result);
+    const pipeline = [
+      {
+        $set: { id: "$_id" },
+      },
+      {
+        $unset: "_id",
+      },
+    ];
+
+    const aggCursor = catColl.aggregate(pipeline);
+    const categories = [];
+    for await (const doc of aggCursor) {
+      categories.push(doc);
+    }
+    res.status(sc.ok).json(categories);
   } catch (error) {
     next(error);
   }
@@ -18,6 +31,8 @@ router.get("/:id", async (req, res, next) => {
     const idStr = req.params.id;
     const catColl = req.app.locals.catColl;
     const result = await catColl.findOne({ _id: new ObjectId(idStr) });
+    result.id = result._id;
+    delete result._id;
     res.status(sc.ok).json(result);
   } catch (error) {
     next(error);

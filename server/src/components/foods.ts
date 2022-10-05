@@ -62,6 +62,8 @@ router.get("/:id", async (req, res, next) => {
     const foodsColl = req.app.locals.foodsColl;
     const idStr = req.params.id;
     const food = await foodsColl.findOne({ _id: new ObjectId(idStr) });
+    food.id = food._id;
+    delete food._id;
     res.status(sc.ok).json(food);
   } catch (error) {
     next(error);
