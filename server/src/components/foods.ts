@@ -1,7 +1,7 @@
 import { Router } from "express";
 const router = Router();
 import { ObjectId } from "mongodb";
-import validateFoodBody from "./validateFoodBody";
+// import validateFoodBody from "./validateFoodBody";
 import sc from "../utils/statusCodes";
 
 router.get("/", async (req, res, next) => {
@@ -45,6 +45,20 @@ router.get("/", async (req, res, next) => {
       {
         $unset: "_id",
       },
+      {
+        $set: { brandId: { $toObjectId: "$brandId" } },
+      },
+      {
+        $lookup: {
+          from: "brands",
+          localField: "brandId",
+          foreignField: "_id",
+          as: "brand",
+        },
+      },
+      { $set: { brand: { $arrayElemAt: ["$brand", 0] } } },
+      { $set: { "brand.id": "$brand._id" } },
+      { $unset: ["brand._id", "brandId"] },
     ];
     const aggCursor = foodsColl.aggregate(pipeline);
     const foods = [];
@@ -74,7 +88,7 @@ router.post("/", async (req, res, next) => {
   try {
     const foodsColl = req.app.locals.foodsColl;
     const body = req.body;
-    validateFoodBody(body);
+    // validateFoodBody(body);
     const result = await foodsColl.insertOne(body);
     res.status(sc.created).json(`Inserted doc ${result.insertedId}`);
   } catch (error) {
