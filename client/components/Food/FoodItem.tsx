@@ -4,13 +4,7 @@ import { Food } from "../../types";
 import { useState } from "react";
 import Edit from "../Edit";
 
-const FoodItem = ({
-  food,
-  categories,
-}: {
-  food: Food;
-  categories: { _id: string; name: string }[];
-}) => {
+const FoodItem = ({ food }: { food: Food }) => {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const handleClickFood = () => {
     setIsEditOpen(true);
@@ -34,11 +28,12 @@ const FoodItem = ({
             carbsNum: food.nutrition.carbohydrates,
             proteinsNum: food.nutrition.proteins,
           }}
+          unit={food.unit}
         />
-        <Categories categories={categories} />
+        <Categories categories={food.categories} />
       </div>
       {isEditOpen && (
-        <Edit id={food._id} onClickClose={() => setIsEditOpen(false)} />
+        <Edit id={food.id} onClickClose={() => setIsEditOpen(false)} />
       )}
     </>
   );

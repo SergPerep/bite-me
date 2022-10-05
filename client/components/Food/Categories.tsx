@@ -5,12 +5,12 @@ const Category = ({ title }: { title: string }) => {
 const Categories = ({
   categories,
 }: {
-  categories: { _id: string; name: string }[];
+  categories: { id: string; name: string }[];
 }) => {
   return (
     <div className="categories">
-      {categories.map((category, index) => (
-        <Category key={category._id} title={category.name} />
+      {categories.map((category) => (
+        <Category key={category.id} title={category.name} />
       ))}
     </div>
   );
